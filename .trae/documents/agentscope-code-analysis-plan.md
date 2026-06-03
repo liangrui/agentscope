@@ -72,6 +72,12 @@ ReadCode/
    - pyproject.toml 依赖分组（models/service/storage/workspace/full/dev）
    - 可选依赖的设计意图
 
+**需要配置的图表**:
+- 图 1-1：项目整体架构图（模块依赖关系）
+- 图 1-2：核心模块依赖关系图
+- 图 1-3：技术栈分层图
+- 图 1-4：包依赖分组关系图
+
 **需要读取的文件**:
 - `/workspace/README.md`
 - `/workspace/pyproject.toml`
@@ -119,6 +125,15 @@ ReadCode/
    - asyncio.Queue + sentinel 模式
    - ExceptionGroup 错误收集
 
+**需要配置的图表**:
+- 图 2-1：Agent类架构全景图
+- 图 2-2：ReAct循环流程图
+- 图 2-3：工具执行生命周期时序图
+- 图 2-4：流式事件类型层次图
+- 图 2-5：工具调用状态机图（ToolCallState）
+- 图 2-6：并发工具执行时序图
+- 图 2-7：Agent核心概念关系总结图
+
 **需要读取的文件**:
 - `/workspace/src/agentscope/agent/_agent.py`
 - `/workspace/src/agentscope/agent/_config.py`
@@ -163,6 +178,15 @@ ReadCode/
    - FormatterBase 统一接口
    - 各提供商格式化器（OpenAI/DashScope/Anthropic/Gemini等）
    - 消息格式转换流程：Msg → Formatter → Provider API Format
+
+**需要配置的图表**:
+- 图 3-1：模型系统架构全景图
+- 图 3-2：ChatModelBase类继承图
+- 图 3-3：模型调用流程时序图（含重试和回退）
+- 图 3-4：结构化输出实现流程图
+- 图 3-5：格式化器类继承图
+- 图 3-6：消息格式转换数据流图
+- 图 3-7：模型卡片与YAML配置关系图
 
 **需要读取的文件**:
 - `/workspace/src/agentscope/model/_base.py`
@@ -217,6 +241,15 @@ ReadCode/
    - ToolChunk（流式中间结果）
    - ToolResponse（最终结果）
    - ToolChoice（工具选择策略）
+
+**需要配置的图表**:
+- 图 4-1：工具系统架构全景图
+- 图 4-2：ToolBase类继承图
+- 图 4-3：Toolkit工具注册与调用流程图
+- 图 4-4：工具分组机制示意图
+- 图 4-5：Bash工具权限检查流程图
+- 图 4-6：工具适配器转换数据流图
+- 图 4-7：工具调用完整时序图（从Agent到执行）
 
 **需要读取的文件**:
 - `/workspace/src/agentscope/tool/_base.py`
@@ -274,6 +307,14 @@ ReadCode/
    - 事件与消息的转换
    - 流式响应到事件的映射
 
+**需要配置的图表**:
+- 图 5-1：消息与事件系统架构全景图
+- 图 5-2：Msg类继承图
+- 图 5-3：内容块（Block）类型层次图
+- 图 5-4：事件类型层次图
+- 图 5-5：消息-事件转换数据流图
+- 图 5-6：流式响应到事件映射时序图
+
 **需要读取的文件**:
 - `/workspace/src/agentscope/message/_base.py`
 - `/workspace/src/agentscope/message/_block.py`
@@ -309,6 +350,14 @@ ReadCode/
 5. **权限模式**
    - 不同权限模式的行为差异
    - Human-in-the-loop 集成
+
+**需要配置的图表**:
+- 图 6-1：权限系统架构全景图
+- 图 6-2：权限检查流程图
+- 图 6-3：权限规则匹配算法流程图
+- 图 6-4：权限决策状态机图
+- 图 6-5：权限上下文传递数据流图
+- 图 6-6：Human-in-the-loop权限交互时序图
 
 **需要读取的文件**:
 - `/workspace/src/agentscope/permission/_engine.py`
@@ -348,6 +397,15 @@ ReadCode/
 5. **AG-UI协议中间件**
    - AG-UI 协议实现
    - 事件到SSE的转换
+
+**需要配置的图表**:
+- 图 7-1：中间件系统架构全景图
+- 图 7-2：MiddlewareBase类层次图
+- 图 7-3：中间件责任链执行时序图
+- 图 7-4：Agent中中间件注册与分类图
+- 图 7-5：Tracing中间件OpenTelemetry集成流程图
+- 图 7-6：ToolOffloadMiddleware工具卸载时序图
+- 图 7-7：AG-UI协议事件转换数据流图
 
 **需要读取的文件**:
 - `/workspace/src/agentscope/middleware/_base.py`
@@ -396,6 +454,14 @@ ReadCode/
    - 工具结果卸载
    - Offloader 接口
 
+**需要配置的图表**:
+- 图 8-1：状态与上下文管理架构全景图
+- 图 8-2：AgentState数据结构图
+- 图 8-3：上下文压缩流程图
+- 图 8-4：上下文分割策略示意图
+- 图 8-5：工具结果截断流程图
+- 图 8-6：卸载机制数据流图
+
 **需要读取的文件**:
 - `/workspace/src/agentscope/state/_state.py`
 - `/workspace/src/agentscope/state/_task.py`
@@ -434,6 +500,14 @@ ReadCode/
 6. **网关客户端**
    - GatewayClient
    - 与工作空间的通信
+
+**需要配置的图表**:
+- 图 9-1：工作空间系统架构全景图
+- 图 9-2：工作空间类继承图
+- 图 9-3：本地/Docker/E2B工作空间对比图
+- 图 9-4：Docker工作空间生命周期时序图
+- 图 9-5：E2B工作空间交互时序图
+- 图 9-6：MCP网关代理架构图
 
 **需要读取的文件**:
 - `/workspace/src/agentscope/workspace/_base.py`
@@ -477,6 +551,12 @@ ReadCode/
    - 环境变量读取
    - 多租户凭证管理
 
+**需要配置的图表**:
+- 图 10-1：凭证系统架构全景图
+- 图 10-2：CredentialBase类继承图
+- 图 10-3：CredentialFactory工厂模式流程图
+- 图 10-4：凭证在模型调用中的传递数据流图
+
 **需要读取的文件**:
 - `/workspace/src/agentscope/credential/_base.py`
 - `/workspace/src/agentscope/credential/_factory.py`
@@ -512,6 +592,13 @@ ReadCode/
 5. **技能与工具的关系**
    - 技能如何转换为工具
    - SkillTool 桥接
+
+**需要配置的图表**:
+- 图 11-1：技能与MCP系统架构全景图
+- 图 11-2：SkillBase类层次图
+- 图 11-3：技能加载与注册流程图
+- 图 11-4：MCP客户端交互时序图
+- 图 11-5：技能到工具的转换数据流图
 
 **需要读取的文件**:
 - `/workspace/src/agentscope/skill/_base.py`
@@ -564,6 +651,15 @@ ReadCode/
 7. **依赖注入**
    - FastAPI依赖系统
    - 存储与工作空间注入
+
+**需要配置的图表**:
+- 图 12-1：应用服务层架构全景图
+- 图 12-2：FastAPI应用创建与配置流程图
+- 图 12-3：路由-服务-管理器-存储分层架构图
+- 图 12-4：聊天请求处理时序图
+- 图 12-5：会话管理生命周期时序图
+- 图 12-6：存储层类继承图
+- 图 12-7：数据模型关系图（ER图）
 
 **需要读取的文件**:
 - `/workspace/src/agentscope/app/_app.py`
@@ -627,6 +723,14 @@ ReadCode/
    - Express/Fastify 代理
    - SSE转发
 
+**需要配置的图表**:
+- 图 13-1：前端WebUI架构全景图
+- 图 13-2：前端组件层次图
+- 图 13-3：页面路由结构图
+- 图 13-4：聊天交互时序图（前端→后端→Agent）
+- 图 13-5：SSE事件流处理数据流图
+- 图 13-6：Hooks数据流图
+
 **需要读取的文件**:
 - `/workspace/examples/web_ui/frontend/package.json`
 - `/workspace/examples/web_ui/frontend/src/App.tsx`
@@ -657,6 +761,11 @@ ReadCode/
 3. **具体实现**
    - OpenAI / DashScope / Gemini / Ollama 嵌入
    - 多模态嵌入
+
+**需要配置的图表**:
+- 图 14-1：嵌入系统架构全景图
+- 图 14-2：EmbeddingBase类继承图
+- 图 14-3：缓存机制流程图
 
 **需要读取的文件**:
 - `/workspace/src/agentscope/embedding/_embedding_base.py`
@@ -689,6 +798,11 @@ ReadCode/
 3. **测试工具**
    - utils.py 辅助函数
    - test_template.py 模板
+
+**需要配置的图表**:
+- 图 15-1：测试体系架构全景图
+- 图 15-2：测试覆盖范围矩阵图
+- 图 15-3：测试文件与源码模块映射图
 
 **需要读取的文件**:
 - `/workspace/tests/test_template.py`
@@ -729,7 +843,82 @@ ReadCode/
 
 ---
 
-## 五、分析方法论
+## 五、写作规范
+
+### 5.1 总-分-总陈述结构
+
+每篇文章严格遵循"总-分-总"的思路进行陈述：
+
+1. **总（开篇概述）**：
+   - 本模块是什么——一句话定义
+   - 本模块解决什么问题——核心痛点与设计目标
+   - 本模块在整体架构中的位置——与上下游模块的关系概览
+   - 配一张**模块全景图**，让读者先建立整体印象
+
+2. **分（逐层展开）**：
+   - 按子模块/功能点逐个深入
+   - 每个子模块内部也遵循"先总后分"：先说设计意图，再说实现细节
+   - 关键流程配**流程图/时序图**，数据结构配**类图**，模块关系配**依赖图**
+   - 代码片段引用关键实现，标注文件路径与行号
+
+3. **总（总结升华）**：
+   - 回顾本模块的核心设计决策与取舍
+   - 本模块的扩展点与定制方式
+   - 与其他模块的协作关系总结
+   - 配一张**核心概念关系图**，帮助读者形成闭环理解
+
+### 5.2 图表配置规范
+
+每篇文章必须包含以下类型的图（使用 Mermaid 语法绘制，直接嵌入 Markdown）：
+
+| 图表类型 | 使用场景 | 最少数量 |
+|---------|---------|---------|
+| **架构/模块关系图** | 展示模块在整体中的位置、与其他模块的依赖 | 每篇至少1张 |
+| **类图/继承图** | 展示核心类的继承关系、接口实现 | 涉及类继承时必须配 |
+| **流程图/时序图** | 展示核心执行流程、调用链路 | 每篇至少1张 |
+| **状态机图** | 展示状态转换逻辑（如工具调用状态、权限决策） | 涉及状态流转时必须配 |
+| **数据流图** | 展示数据在各层之间的流转 | 涉及数据转换时必须配 |
+
+**图表命名规范**：
+- 每张图使用有意义的标题，格式：`图 X-X：[描述]`
+- 图表编号按文章内顺序递增
+
+**Mermaid 图表示例**：
+
+```mermaid
+graph TD
+    A[模块A] --> B[模块B]
+    A --> C[模块C]
+    B --> D[模块D]
+```
+
+```mermaid
+classDiagram
+    class BaseClass {
+        +method1()
+        +method2()
+    }
+    class ConcreteClass {
+        +method1()
+        +method2()
+    }
+    BaseClass <|-- ConcreteClass
+```
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Agent
+    participant Model
+    User->>Agent: reply_stream()
+    Agent->>Model: _call_model()
+    Model-->>Agent: ChatResponse
+    Agent-->>User: AgentEvent
+```
+
+---
+
+## 六、分析方法论
 
 1. **自顶向下**: 先理解整体架构，再深入每个模块
 2. **追踪数据流**: 从用户输入到最终输出的完整路径
@@ -739,10 +928,11 @@ ReadCode/
 
 ---
 
-## 六、假设与决策
+## 七、假设与决策
 
 1. **假设**: 读者有Python异步编程和LLM基础概念
 2. **决策**: 按模块划分文件，而非按功能点，便于独立阅读
-3. **决策**: 每个文件包含"设计理念→接口定义→实现细节→使用示例"的结构
-4. **决策**: 重点关注核心流程，对辅助工具类简要说明
-5. **决策**: 代码引用使用文件路径+行号，便于定位
+3. **决策**: 每个文件严格遵循"总-分-总"结构：开篇概述 → 逐层展开 → 总结升华
+4. **决策**: 每篇文章必须配置 Mermaid 图表（架构图、类图、流程图、状态机图、数据流图）
+5. **决策**: 重点关注核心流程，对辅助工具类简要说明
+6. **决策**: 代码引用使用文件路径+行号，便于定位
