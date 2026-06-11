@@ -7,6 +7,7 @@
 基于 AgentScope 的 Model、Toolkit、Msg 等核心组件构建。
 """
 import asyncio
+import inspect
 import json
 import uuid
 from copy import deepcopy
@@ -131,7 +132,7 @@ class AgentLoop:
         )
 
         # 处理流式响应：收集所有 chunk 得到完整响应
-        if hasattr(res, "__aiter__"):
+        if inspect.isasyncgen(res):
             completed_response = None
             async for chunk in res:
                 if chunk.is_last:
