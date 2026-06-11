@@ -1,0 +1,11 @@
+- [x] MYCODE/ 目录已创建，包含 __init__.py
+- [x] events.py 中定义了 LoopStartEvent / LoopEndEvent / PhaseStartEvent / PhaseEndEvent 四种事件类型
+- [x] AgentLoop 类的 perceive() 方法能正确组装上下文（system_prompt + summary + context）
+- [x] AgentLoop 类的 reason() 方法能调用模型并判断输出类型（直接回答 or 工具调用）
+- [x] AgentLoop 类的 plan() 方法能解析工具调用并规划执行批次（并发/顺序）
+- [x] AgentLoop 类的 act() 方法能执行工具调用并收集结果
+- [x] AgentLoop 类的 observe() 方法能将工具结果注入上下文
+- [x] AgentLoop 类的 run() 方法能串联五阶段循环，发出事件流，并在达到 max_iters 时停止
+- [x] Demo 智能研究助手（demo_research.py）可运行，展示 search_web → read_document → compare 的多步调研流程
+- [x] Demo 数据分析助手（demo_analytics.py）可运行，展示 query_database → calculate → generate_chart 的多步分析流程
+- [x] 每个阶段的入口和出口都有对应的事件输出，便于观测
